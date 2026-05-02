@@ -4,40 +4,114 @@
 {% block content %}
 
 <section class="hero">
-    <div class="container">
+<div class="container hero-flex">
 
-        <h1>Nodirbek Blog</h1>
+<div class="hero-text">
 
-        <p>
-            Bu mening shaxsiy blogim. Bu yerda dasturlash, sun'iy intellekt,
-            tarmoq texnologiyalari va universitet loyihalarim haqida yozaman.
-        </p>
+<h1>Nodirbek Blog</h1>
 
-        <a href="{% url 'articles' %}" class="btn">Maqolalarni ko‘rish</a>
+<p>
+Bu mening shaxsiy texnologiya blogim. Bu yerda dasturlash,
+sun'iy intellekt, tarmoq texnologiyalari va universitet
+loyihalarim haqida yozaman.
+</p>
 
-    </div>
+<a href="{% url 'articles' %}" class="btn">
+Maqolalarni ko‘rish
+</a>
+
+</div>
+
+<div class="hero-image">
+<img src="{% static 'images/profile.jpg' %}">
+</div>
+
+</div>
 </section>
 
 
-<section class="latest-posts">
-    <div class="container">
+<section class="news-layout">
 
-        <h2>So‘nggi maqolalar</h2>
+<div class="container news-grid">
 
-        <div class="post-card">
+<div class="main-news">
 
-            <h3>Rasm segmentatsiyasi uchun Deep Learning</h3>
+<img src="{% static 'images/python.png' %}">
 
-            <p>
-                Deep Learning yordamida tasvirlarni segmentatsiya qilish usullari
-                va ularning amaliy qo‘llanilishi.
-            </p>
+<h2>Sun'iy intellekt va Deep Learning texnologiyalari</h2>
 
-            <a href="#">Batafsil</a>
+<p>
+Sun'iy intellekt bugungi kunda eng tez rivojlanayotgan
+texnologiyalardan biri hisoblanadi.
+</p>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="side-news">
+
+<h3>So‘nggi yangiliklar</h3>
+
+<div class="side-item">
+Python dasturlash tilining yangi versiyasi chiqdi
+</div>
+
+<div class="side-item">
+Django framework yordamida web sayt yaratish
+</div>
+
+<div class="side-item">
+Deep Learning yordamida tasvirlarni aniqlash
+</div>
+
+<div class="side-item">
+Computer Vision texnologiyasi nima
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-{% endblock content %}
+
+
+<section class="articles-section">
+
+<div class="container">
+
+<h2>Texnologiya maqolalari</h2>
+
+<div class="articles-grid">
+
+<div class="article-card">
+<img src="{% static 'images/python.png' %}">
+<h3>Python dasturlash</h3>
+<p>Python dasturlash tilining asoslari.</p>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/django.png' %}">
+<h3>Django framework</h3>
+<p>Django yordamida web saytlar yaratish.</p>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/ai.png' %}">
+<h3>Artificial Intelligence</h3>
+<p>Sun'iy intellekt asoslari.</p>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/python.png' %}">
+<h3>Computer Vision</h3>
+<p>Tasvirni qayta ishlash texnologiyasi.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

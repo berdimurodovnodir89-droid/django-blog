@@ -3,6 +3,7 @@ import json
 
 DEMO_DB_PATH = "db.json"
 
+
 class Database:
     def __init__(self, path=DEMO_DB_PATH):
         self.path = path
@@ -18,11 +19,11 @@ class Database:
     def get_articles(self):
         data = self.read()
         return data.get("articles", [])
-    
+
     def get_latest_articles(self, count=3):
         articles = self.get_articles()
         return articles[:count]
-    
+
     def get_article_by_slug(self, slug):
         articles = self.get_articles()
         for article in articles:
@@ -36,7 +37,7 @@ class Database:
             "id": len(articles) + 1,
             "title": title,
             "content": content,
-            "slug": title.lower().replace(" ", "-")
+            "slug": title.lower().replace(" ", "-"),
         }
         articles.append(new_article)
         self.write({"articles": articles})

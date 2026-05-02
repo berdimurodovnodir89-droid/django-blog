@@ -1,27 +1,58 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
-{% endblock styles %}
-
 {% block content %}
-    <div class="container">
 
-        <h2>All Articles</h2>
+<div class="container">
 
-        <article class="article-list">
+<h1 class="page-title">Maqolalar</h1>
 
-            {% for article in articles %}
-                <section class="article-item">
-                    <h3>{{ article.title }}</h3>
-                    <p>{{ article.description }}</p>
-                    <a href="{% url "article_details" slug=article.slug %}">Read more →</a>
-                </section>
-            {% endfor %}
+<div class="articles-grid">
 
-        </article>
+<div class="article-card">
+<img src="{% static 'images/python.png' %}" alt="Python">
+<h3>Python dasturlash tiliga kirish</h3>
+<p>Python dasturlash tilining asosiy sintaksisi va imkoniyatlari.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
 
-    </div>
-{% endblock content %}
+<div class="article-card">
+<img src="{% static 'images/django.png' %}" alt="Django">
+<h3>Django framework bilan web dasturlash</h3>
+<p>Django yordamida zamonaviy web saytlar yaratish.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/ai.png' %}" alt="AI">
+<h3>Sun'iy intellekt asoslari</h3>
+<p>Artificial Intelligence va Machine Learning tushunchalari.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/python.png' %}" alt="Deep Learning">
+<h3>Rasm segmentatsiyasi uchun Deep Learning</h3>
+<p>Deep learning yordamida tasvirlarni segmentatsiya qilish usullari.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/python.png' %}" alt="MATLAB">
+<h3>MATLAB da tasvirni qayta ishlash</h3>
+<p>MATLAB yordamida tasvirlarni qayta ishlash usullari.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
+
+<div class="article-card">
+<img src="{% static 'images/ai.png' %}" alt="Computer Vision">
+<h3>Computer Vision nima</h3>
+<p>Kompyuter ko‘rish texnologiyasi va tasvirni tahlil qilish.</p>
+<a href="#" class="read-more">Batafsil</a>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -9,33 +9,42 @@ db = Database()
 
 def home_page(request: HttpRequest) -> HttpResponse:
     articles = db.get_latest_articles()
-    return render(request=request, template_name='home.html', context={'articles': articles})
+    return render(
+        request=request, template_name="home.html", context={"articles": articles}
+    )
 
 
 def articles_page(request: HttpRequest) -> HttpResponse:
     articles = db.get_articles()
-    return render(request=request, template_name='articles.html', context={'articles': articles})
+    return render(
+        request=request, template_name="articles.html", context={"articles": articles}
+    )
 
 
 def article_details_page(request: HttpRequest, slug: str) -> HttpResponse:
     article = db.get_article_by_slug(slug)
-    return render(request=request, template_name='details.html', context={'article': article})
+    return render(
+        request=request, template_name="details.html", context={"article": article}
+    )
 
 
 def about_page(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name='about.html')
+    return render(request=request, template_name="about.html")
 
 
 def contact_page(request: HttpRequest) -> HttpResponse:
-    return render(request=request, template_name='contact.html')
+    return render(request=request, template_name="contact.html")
 
 
 def add_article_page(request: HttpRequest) -> HttpResponse:
-    if request.method == 'GET':
-        return render(request=request, template_name='add.html')
-    elif request.method == 'POST':
-        title = request.POST.get('title')
-        content = request.POST.get('content')
+    if request.method == "GET":
+        return render(request=request, template_name="add.html")
+    elif request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
         db.add_article(title=title, content=content)
-        return render(request=request, template_name='add.html', context={'message': 'Article added successfully!'})
-    
+        return render(
+            request=request,
+            template_name="add.html",
+            context={"message": "Article added successfully!"},
+        )

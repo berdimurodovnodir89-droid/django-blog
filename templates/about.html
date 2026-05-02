@@ -1,32 +1,30 @@
 {% extends "base.html" %}
-{% load static %}
-
-
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
-{% endblock styles %}
 
 {% block content %}
-    <div class="container">
 
-        <section class="about">
-            <h2>About Me</h2>
-            <p>
-                I am a backend developer focused on building scalable, maintainable, and secure systems.
-            </p>
+<div class="container">
 
-            <h3>Skills</h3>
-            <ul>
-                <li>Python (Django, FastAPI)</li>
-                <li>System Design & Architecture</li>
-                <li>Database Optimization</li>
-            </ul>
+    <h1>Men haqimda</h1>
 
-            <h3>Mission</h3>
-            <p>
-                Sharing practical knowledge based on real-world engineering experience.
-            </p>
-        </section>
+    <p>
+        Men Nodirbek, kompyuter injiniring yo‘nalishida tahsil olaman.
+        Dasturlash, sun'iy intellekt va tarmoq texnologiyalariga qiziqaman.
+        Hozirda universitet loyihalarim ustida ishlayapman va o‘z bilimlarimni
+        blogimda bo‘lishishni xohlayman.
+        Keyin bu blogda o‘z tajribalarim, loyihalarim va texnologiyalar haqida
+        maqolalar yozaman.
+        
+    </p>
 
-    </div>
+    <h3>Ko‘nikmalarim</h3>
+
+    <ul>
+        <li>Python (Django, FastAPI)</li>
+        <li>Machine Learning</li>
+        <li>Computer Vision</li>
+        <li>Network Technologies</li>
+    </ul>
+
+</div>
+
 {% endblock content %}
