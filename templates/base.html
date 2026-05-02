@@ -1,58 +1,70 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Blog</title>
+    <title>Nodirbek Personal Blog</title>
+
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     {% block styles %}{% endblock styles %}
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <h1 class="logo">My Blog</h1>
+<!-- HEADER -->
+<header class="site-header">
+    <div class="container">
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="{% url "home" %}">Home</a></li>
-                    <li><a href="{% url "articles" %}">Articles</a></li>
-                    <li><a href="{% url "about" %}">About</a></li>
-                    <li><a href="{% url "contact" %}">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <h1 class="logo">Nodirbek blog</h1>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                <li><a href="{% url 'articles' %}">Maqolalar</a></li>
+                <li><a href="{% url 'about' %}">Men haqimda</a></li>
+                <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+
+                <!-- TELEGRAM LINK -->
+                <li>
+                    <a href="https://t.me/YOUR_TELEGRAM" target="_blank">
+                        Telegram
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
 
 
-    <!-- MAIN -->
-    <main class="site-main">
+<!-- MAIN -->
+<main class="site-main">
 
-        {% block content %}{% endblock content %}
+    {% block content %}{% endblock content %}
 
-    </main>
+</main>
 
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
 
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="{% url "contact" %}">Contact</a></li>
-                </ul>
-            </nav>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="https://t.me/muslimm_04">Telegram kanal</a></li>
+                <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+            </ul>
+        </nav>
 
-            <p>&copy; 2026 My Blog. All rights reserved.</p>
+        <p>
+            © 2026 Nodirbek Blog |
+            Telegram: <a href="https://t.me/muslimm_04">https://t.me/muslimm_04</a>
+        </p>
 
-        </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
