@@ -1,43 +1,20 @@
-import json
-
-
-DEMO_DB_PATH = "db.json"
+from .models import Article
 
 
 class Database:
-    def __init__(self, path=DEMO_DB_PATH):
-        self.path = path
 
-    def read(self):
-        with open(self.path, "r") as f:
-            return json.load(f)
-
-    def write(self, data):
-        with open(self.path, "w") as f:
-            json.dump(data, f, indent=4)
+    def get_latest_articles(self):
+        return Article.objects.order_by("-id")[:5]
 
     def get_articles(self):
-        data = self.read()
-        return data.get("articles", [])
-
-    def get_latest_articles(self, count=3):
-        articles = self.get_articles()
-        return articles[:count]
+        return Article.objects.all()
 
     def get_article_by_slug(self, slug):
-        articles = self.get_articles()
-        for article in articles:
-            if article.get("slug") == slug:
-                return article
-        return None
+        return Article.objects.get(slug=slug)
 
     def add_article(self, title, content):
-        articles = self.get_articles()
-        new_article = {
-            "id": len(articles) + 1,
-            "title": title,
-            "content": content,
-            "slug": title.lower().replace(" ", "-"),
-        }
-        articles.append(new_article)
-        self.write({"articles": articles})
+        Article.objects.create(title=title, content=content)
+
+    # MUAMMONI TUZATADIGAN METOD
+    def find_articles_by_title(self, q):
+        return Article.objects.filter(title__icontains=q)

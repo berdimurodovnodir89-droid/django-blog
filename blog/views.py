@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 
 from .db import Database
-from .forms import GetArticlesQueryForm
+from .forms import GetArticlesQueryForm, WriteArticleForm
 
 
 db = Database()
@@ -48,11 +48,23 @@ def contact_page(request: HttpRequest) -> HttpResponse:
 
 
 def add_article_page(request: HttpRequest) -> HttpResponse:
+<<<<<<< HEAD
     if request.method == "GET":
         return render(request=request, template_name="add.html")
     elif request.method == "POST":
         title = request.POST.get("title")
         content = request.POST.get("content")
+=======
+    if request.method == 'GET':
+        return render(request=request, template_name='add.html')
+    elif request.method == 'POST':
+        form = WriteArticleForm(request.POST)
+        if not form.is_valid():
+            return render(request=request, template_name='add.html', context={'form': form})
+
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+>>>>>>> ad8a36aacc7a98dc6cfd89cd8458fedfea0b050f
         db.add_article(title=title, content=content)
         return render(
             request=request,
